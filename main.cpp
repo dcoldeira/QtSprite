@@ -1,11 +1,12 @@
 #include <QApplication>
-#include "Map.h"
+
+#include "Game.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    Map Map;
+    Game Game;
 
     return a.exec();
 }
