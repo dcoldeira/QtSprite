@@ -4,13 +4,12 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
-QT += svg
+QT       += core gui widgets gamepad
 
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = Game
+TARGET = Chigui
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -28,12 +27,16 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-    KeyEvent.cpp \
-    Game.cpp
+    Player.cpp \
+    GameScene.cpp \
+    BackgroundItem.cpp \
+    Coin.cpp
 
 HEADERS += \
-    KeyEvent.h \
-    Game.h
+    Player.h \
+    GameScene.h \
+    BackgroundItem.h \
+    Coin.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

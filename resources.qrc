@@ -1,6 +1,10 @@
 <RCC>
-    <qresource prefix="/ima">
+    <qresource prefix="/">
         <file>Img/ChiquiOriginal.png</file>
         <file>Img/ChiquiOriginal2.svg</file>
+        <file>Img/grass.png</file>
+        <file>Img/ground.png</file>
+        <file>Img/trees.png</file>
+        <file>Img/sky.png</file>
     </qresource>
 </RCC>

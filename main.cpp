@@ -1,12 +1,24 @@
 #include <QApplication>
 
-#include "Game.h"
+
+#include <QDateTime>
+#include <QGraphicsView>
+
+#include "GameScene.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    qsrand(QDateTime::currentMSecsSinceEpoch());
 
-    Game Game;
+    GameScene scene;
+    QGraphicsView view;
+    view.setRenderHint(QPainter::Antialiasing);
+    view.setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view.setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view.setScene(&scene);
+    view.setFixedSize(scene.sceneRect().size().toSize());
+    view.show();
 
     return a.exec();
 }
