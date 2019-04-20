@@ -9,9 +9,9 @@ Coin::Coin(QGraphicsItem *parent) :
     QGraphicsEllipseItem(parent)
   , m_explosion(false)
 {
-    setPen(QPen(QColor(41, 190, 56), 2));
-    setBrush(QColor(52, 253, 151));
-    setRect(-12, -12, 24, 24);
+    setPen(QPen(QColor(0, 3, 16), 1));
+    setBrush(QColor(12, 73, 31));
+    setRect(-10, -10, 15, 15);
 }
 
 int Coin::type() const

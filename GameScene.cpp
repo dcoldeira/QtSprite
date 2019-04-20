@@ -21,16 +21,16 @@ GameScene::GameScene(QObject *parent) :
     QGraphicsScene(parent)
   , m_velocity(6)
   , m_worldShift(0)
-  , m_groundLevel(510)
+  , m_groundLevel(550) // qui...............................................
   , m_minX(0)
   , m_maxX(0)
   , m_jumpAnimation(new QPropertyAnimation(this))
   , m_jumpHeight(180)
-  , m_fieldWidth(1500)
+  , m_fieldWidth(2000)
   , player()
-//  , m_sky()
-//  , m_trees()
-//  , m_grass()
+  , m_sky()
+  , m_trees()
+  , m_grass()
   , m_coins()
   , m_horizontalInput(0)
 {
@@ -89,9 +89,9 @@ void GameScene::keyReleaseEvent(QKeyEvent *event)
     case Qt::Key_Left:
         addHorizontalInput(1);
         break;
-        //    case Qt::Key_Space:
-        //        return;
-        //        break;
+            case Qt::Key_Space:
+                return;
+                break;
     default:
         break;
     }
@@ -131,8 +131,8 @@ void GameScene::movePlayer()
 
     const qreal ratio = qreal(m_worldShift) / maxWorldShift;
     applyParallax(ratio, m_sky);
-//    applyParallax(ratio, m_grass);
-//    applyParallax(ratio, m_trees);
+    applyParallax(ratio, m_grass);
+    applyParallax(ratio, m_trees);
     applyParallax(ratio, m_coins);
 
     checkColliding();
@@ -144,7 +144,7 @@ void GameScene::applyParallax(qreal ratio, QGraphicsItem* item) {
 
 void GameScene::initPlayField()
 {
-    setSceneRect(0, 0, 890, 550);
+    setSceneRect(0, 0, 1280,720);     // QUI..........................................................
 
     m_sky = new BackgroundItem(QPixmap(":/Img/sky.png"));
     addItem(m_sky);
@@ -153,13 +153,13 @@ void GameScene::initPlayField()
     addItem(ground);
     ground->setPos(0, m_groundLevel);
 
-//    m_trees = new BackgroundItem(QPixmap(":/Img/trees.png"));
-//    m_trees->setPos(0, m_groundLevel - m_trees->boundingRect().height());
-//    addItem(m_trees);
+    m_trees = new BackgroundItem(QPixmap(":/Img/trees.png"));
+    m_trees->setPos(0, m_groundLevel - m_trees->boundingRect().height());
+    addItem(m_trees);
 
-//    m_grass = new BackgroundItem(QPixmap(":/grass"));
-//    m_grass->setPos(0,m_groundLevel - m_grass->boundingRect().height());
-//    addItem(m_grass);
+    m_grass = new BackgroundItem(QPixmap(":/Img/grass.png"));
+    m_grass->setPos(0,m_groundLevel - m_grass->boundingRect().height());
+    addItem(m_grass);
 
     player = new Player();
     m_minX = player->boundingRect().width() * 0.5;

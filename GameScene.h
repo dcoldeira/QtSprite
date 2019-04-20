@@ -59,8 +59,8 @@ private:
 
     Player* player;
     BackgroundItem *m_sky;
-//    BackgroundItem *m_trees;
-//    BackgroundItem *m_grass;
+    BackgroundItem *m_trees;
+    BackgroundItem *m_grass;
     QGraphicsRectItem *m_coins;
 
     int m_horizontalInput;
